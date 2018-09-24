@@ -1,5 +1,5 @@
 <?php
-function page_header($color){
+function page_header($color='red'){
     print'<html><head><title>Welcome to my site</title></head>';
     print'<body bgcolor='.$color.'>';
 }
