@@ -11,6 +11,7 @@ $cities= array(
     array("Murcia",439712),
     array("Las Palmas de Gran Canaria",382283)
 );
+function print_cities(){
 echo "<table>";
 foreach ($cities as $key=>$values) {
     echo ("<tr>");
@@ -19,3 +20,10 @@ foreach ($cities as $key=>$values) {
     echo("</tr>");
 }
 echo("</table>");
+}
+function print_cities_ordered_by_population(){
+    #Code...
+}
+function print_cities_ordered_by_name(){
+    #Code...
+}
