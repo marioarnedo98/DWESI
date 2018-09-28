@@ -1,6 +1,6 @@
 <?php
 function ejercice8($string){
-    if(preg_match("/^\[+$/",$string)){
+    if(preg_match("/\[+/",$string)){
         echo("Se ha encontrado una coincidencia");
     }
     else{
