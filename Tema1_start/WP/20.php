@@ -1,29 +1,36 @@
 <?php
 $cities= array(
-    array("Barcelona",1602386),
-    array("Sevilla",696676),
-    array("Malaga",566913),
-    array("Palma de Mallorca",399093),
-    array("Bilbao",346574),
-    array("Madrid",3151689),
-    array("Valencia",787266),
-    array("Zaragoza",666058),
-    array("Murcia",439712),
-    array("Las Palmas de Gran Canaria",382283)
+"Barcelona"=>1602386,
+"Sevilla"=>696676,
+"Malaga"=>566913,
+"Palma de Mallorca"=>399093,
+"Bilbao"=>346574,
+"Madrid"=>3151689,
+"Valencia"=>787266,
+"Zaragoza"=>666058,
+"Murcia"=>439712,
+"Las Palmas de Gran Canaria"=>382283
 );
-function print_cities(){
-echo "<table>";
+function print_cities($cities){
+    echo "<h1>print_cities</h1>";
+
 foreach ($cities as $key=>$values) {
-    echo ("<tr>");
-        echo ("<td>".$values[0]."</td>");
-        echo ("<td>".$values[1]."</td>");
-    echo("</tr>");
+echo "La ciudad de $key tiene $values personas";
 }
-echo("</table>");
+
 }
-function print_cities_ordered_by_population(){
-    #Code...
+function print_cities_ordered_by_population($cities){
+    asort($cities);
+    foreach ($cities as $x=>$x_values) {
+        echo "La ciudad de $x tiene $x_values personas";
+    }
 }
-function print_cities_ordered_by_name(){
-    #Code...
+function print_cities_ordered_by_name($cities){
+    ksort($cities);
+    foreach ($cities as $j=>$j_values) {
+        echo "La ciudad de $j tiene $j_values personas";
+    }
 }
+echo print_cities($cities);
+echo print_cities_ordered_by_population($cities);
+echo print_cities_ordered_by_name($cities);
