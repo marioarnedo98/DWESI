@@ -3,7 +3,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $defaults=$_POST;
 }
 else{
-    $defaults= array('delivery'=> 'yes',
+    $defaults= array('delivery'=> 'no',
     'size'=> 'medium',
     'ingredients' => array('jam', 'cheese'),
     'pizza'=>'hawaian');
@@ -38,7 +38,26 @@ foreach($ingredients as $option => $label){
     if(array_key_exists($option, $selected_options)){
         print ' selected';
     }
-    print '>'.htmlentities ($label).'</option>';
-    print "\n";
+    print '><br>'.htmlentities ($label).'</option>';
+    print "</br>";
 }
-print '</select><br>';
+//Checkbox
+$delivery=array('yes'=>'Yes', 'no'=>'No');
+foreach($delivery as $o => $value){
+    print("<input type='checkbox' value='".$o."'");
+    if($o==$defaults['delivery']){
+        print(' checked');
+    }
+    print ">".$value;
+}
+print '<br>';
+//radio
+$size=array('small'=>'Small', 'medium'=>'Medium', 'Large'=>'Large');
+foreach($size as $op => $valuess){
+    print("<input type='radio' value='".$op."' name='size'");
+    if($op==$defaults['size']){
+        print(' checked');
+    }
+    print ">".$valuess;
+}
+print '<br>';
