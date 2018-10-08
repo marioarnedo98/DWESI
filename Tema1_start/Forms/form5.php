@@ -1,4 +1,5 @@
 <?php
+require 'FormHelper.php';
 if ($_SERVER['REQUEST_METHOD']=='POST'){
     if($form_errors = validate_form()){
         show_form($form_errors);    
@@ -15,6 +16,9 @@ function process_form(){
     print " You have".$_POST['my_age']."Years";
 }
 function show_form($errors=[]){
+    $defaults=array('name' => 'Type your name', 'age' => 'Type your age');
+    $form= new FormHelper($defaults);
+    include 'form.html.php';
     if($errors){
         print "Please correct these errors <ul><li>";
         print implode("</li><li>", $errors);
