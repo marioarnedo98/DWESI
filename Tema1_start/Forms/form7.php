@@ -1,4 +1,5 @@
 <?php
+require FormHelper.php;
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $defaults=$_POST;
 }
