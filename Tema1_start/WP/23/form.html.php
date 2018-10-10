@@ -14,12 +14,11 @@
 
             </td>
     <?php }?>
-        <tr><td><?=$form->select($GLOBALS['pizzas'], ['name' => 'pizzas'])?></td></tr>
-        <tr><td><?=$form->select($GLOBALS['ingredients'], ['name' => 'ingredients', 'multiple' => true])?></td></tr>
-        <tr><td>Delivery?<?=$form->input('checkbox', ['name' => 'delivery','checked' => true])?></td></tr>
-        <tr><td>small<?=$form->input('radio', ['name' => 'size', 'required'=> true, 'checked' => false, 'value'=>'small'])?></td></tr>
-        <tr><td>medium<?=$form->input('radio', ['name' => 'size', 'required'=> true, 'checked' => true, 'value'=>'medium'])?></td></tr>
-        <tr><td>large<?=$form->input('radio', ['name' => 'size', 'required'=> true, 'checked' => false, 'value'=>'largue'])?></td></tr>
+        <tr><td><?=$form->select($GLOBALS['from'], ['name' => 'from'])?></td></tr>
+        <tr><td><?=$form->select($GLOBALS['to'], ['name' => 'to'])?></td></tr>
+        <tr><td>ZIP Code <?=$form->input('text', ['name' => 'zip_code','required' => true])?></td></tr>
+        <tr><td>Dimensions <?=$form->input('text', ['name' => 'dimensions','required' => true])?></td></tr>
+        <tr><td>Weight <?=$form->input('text', ['name' => 'weight_1','required' => true])?></td><td>x<?=$form->input('text', ['name' => 'weight_2','required' => true])?></td></tr>
         <tr><td colspan = "2" align ="center"><?=$form->input('submit', ['value' => 'order'])?></td></tr>
 
 

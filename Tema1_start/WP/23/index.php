@@ -1,20 +1,30 @@
 <?php
 require './FormHelper.php';
-$pizzas = array(
-    'pork' => 'BBQ Prok Pizza',
-    'chicken' => 'Chicken Pizza',
-    'lotus' => 'Lotus Seed Pizza',
-    'hawaian' => 'Hawaian Pizza',
-    'carbonara' => 'Carbonara Pizza',
+$from = array(
+    'madrid' => 'Madrid',
+    'barcelona' => 'Barcelona',
+    'valencia' => 'Valencia',
+    'sevilla' => 'Sevilla',
+    'alicante' => 'Alicante',
+    'malaga'=>'Malaga',
+    'murcia'=>'Murcia',
+    'cadiz'=>'Cadiz',
+    'vizcaya'=>'Vizcaya',
+    'la_coruna'=>'La coruña'
 );
 
-$ingredients = array(
-    'cheese' => 'Extra cheese',
-    'jam' => 'Jam',
-    'mushrooms' => 'Mushrooms',
-    'bbq' => 'BBQ Sauce',
+$to = array(
+    'madrid' => 'Madrid',
+    'barcelona' => 'Barcelona',
+    'valencia' => 'Valencia',
+    'sevilla' => 'Sevilla',
+    'alicante' => 'Alicante',
+    'malaga'=>'Malaga',
+    'murcia'=>'Murcia',
+    'cadiz'=>'Cadiz',
+    'vizcaya'=>'Vizcaya',
+    'la_coruna'=>'La coruña'
 );
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = validate_form();
 
@@ -30,17 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 function process_form($input)
 {
-    print("Congrats! You order a ".$input['size']." pizza ".$input['pizza']." whith these ingredients ");
-    foreach ($input['ingredients'] as $key => $comida) {
-        print $comida.",";
-    }
-    print("and the pizza is ");
-    if($input['delivery']=="on"){
-        print("going to your home,");
-    }else{
-        print("you have to come to our shop,");
-    }
-    print(" Thank you <3");
+    print("Your order is comming to " .$input['ciudad_destino']." from " .$input['cuidad_origen'].". The dimensions are " .$input['dimensions_1']."cm X ".$input['dimensions_2']. "cm. And the weight is ".$input['peso'])."kg.";
 }
 
 function show_form($errors = [])
@@ -52,24 +52,29 @@ function show_form($errors = [])
 
 function validate_form()
 {
+    var_dump($_POST);
     $errors = array();
     $input = array();
-    $input['pizza'] = trim($_POST['pizzas']);
-       if(!$input['pizza']){
-        $errors[]='Please, select a pizza';
+    $input['ciudad_destino'] = trim($_POST['to']);
+       if(!$input['ciudad_destino']){
+        $errors[]='Please, select a origin city';
     }
-    foreach ($_POST['ingredients'] as $key => $value) {
-        $ingredientes[]=trim($value);
+    $input['cuidad_origen'] = trim($_POST['from']);
+       if(!$input['cuidad_origen']){
+        $errors[]='Please, select a destiny city';
     }
-    $input['ingredients']=$ingredientes;
-    if (is_array($input['ingredients']) && sizeof($input['ingredients']) <= 1){
-        $errors[]='Please, select at least 2 ingredients';
+    $input['zip_code']=intval(trim($_POST['zip_code']));
+    if(strlen ($input['zip_code']) <5){
+        $errors[]='The zip code must have 5 numbers';
     }
-    $input['size']= trim($_POST['size']);
-    if(!$input['size']){
-        $errors[]='Please, select a size';
+    $input['dimensions_1']= intval(trim($_POST['weight_1']));
+    $input['dimensions_2']= intval(trim($_POST['weight_2']));
+    if($input['dimensions_1']<2||$input['dimensions_2']<2){
+        $errors[]='The dimensions are more than 2x2';
     }
-    $input['delivery']= trim($_POST['delivery']);
-
+    $input['peso'] = intval(trim($_POST['dimensions']));
+    if($input['peso']<25){
+        $errors[]='The weight must be greater than 25kg';
+    }
     return array($errors, $input);
 }
