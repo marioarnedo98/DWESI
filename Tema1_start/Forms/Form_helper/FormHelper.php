@@ -45,7 +45,7 @@ class FormHelper {
         // <select> and <textarea> tags don't get value attributes on them
         $valueAttribute = (! (($tag == 'select')||($tag == 'textarea')));
         $attrs = $this->attributes($attributes, $isMultiple, $valueAttribute);
-        return "<$tag $attrs>";
+        return "<$tag $attrs required>";
     }
     public function end($tag) {
         return "</$tag>";

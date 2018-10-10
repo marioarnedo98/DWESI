@@ -30,29 +30,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 function process_form($input)
 {
-    print " age: " . $input['age'] . " Email: " . $input['email'];
+    var_dump($input);
+    print_r("Congrats! You order a pizza ".$_POST['pizzas']."wh");
 }
 
 function show_form($errors = [])
 {
 
-    $defaults = array('name' => 'Type your name', 'age' => 'Type your age');
-    $form = new FormHelper($defaults);
+    $form = new FormHelper();
     include 'form.html.php';
 }
 
 function validate_form()
 {
+    var_dump(trim($_POST['pizzas']));
     $errors = array();
     $input = array();
-
-    $input['age'] = filter_input(INPUT_POST, 'age', FILTER_VALIDATE_INT,
-        array('options' => array('min_range' => 18,
-            'max_range' => 65)));
-
-    $input['email'] = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    if (!$input['email']) {
-        $errors[] = 'Please enter a valid email addres';
+    $input['pizza'] = filter_input(INPUT_POST, trim($_POST['pizzas']));
+    if(!$input['pizza']){
+        $errors[]='Please, select a pizza';
     }
+    foreach ($_POST['ingredients'] as $key => $value) {
+        $ingredientes[]=trim($value);
+    }
+    $input['ingredients']=$ingredientes;
+    if (is_array($input['ingredients']) && sizeof($input['ingredients']) <= 1){
+        $errors[]='Please, select at least 2 ingredients';
+    }
+    $input['size']=filter_input(INPUT_POST, trim($_POST['size']));
+    if(!$input['size']){
+        $errors[]='Please, select a pizza';
+    }
+    $input['delivery']=filter_input(INPUT_POST, trim($_POST['delivery']));
+
     return array($errors, $input);
 }
