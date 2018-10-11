@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 function process_form($input)
 {
-    print("You Select the date");
+    print("You Select the date ".$input['date']);
 }
 
 function show_form($errors = [])
@@ -43,27 +43,20 @@ function show_form($errors = [])
     include 'form.html.php';
 }
 
+$date=(trim($_POST['period']));
+
+function validate_Date($date, $format='Y-m-d'){
+$d=DateTime::createFromFormat($format, $date);
+return $d && $d->format($format)==$date;
+}
 function validate_form()
 {
-    var_dump($_POST);
+ 
     $errors = array();
     $input = array();
-    $array_spliteado=explode("-",trim($_POST['period']));
-    var_dump($array_spliteado);
-    if(sizeof($array_spliteado)>=4){
-        $errors[]="You put a wrong date, check again";
-    }
-    $input['year']=$array_spliteado[0];
-    $input['month']=$array_spliteado[1];
-    $input['day']=$array_spliteado[2];
-    if($input['year']<1769||$input['year']>2021){
-        $errors[]="Please, insert a valid year";
-    }
-    if($input['month']<0||$input['month']<13){
-        $errors[]="Please, insert a valid month";
-    }
-    if($input['day']<0||$input['day']<32){
-        $errors[]="Please, insert a valid day";
-    }
+    $input['date']=trim($_POST['period']);
+    if(!validate_Date($input['date'])){
+     $errors[]="You put a wrong date";   
+    }    
     return array($errors, $input);
 }
