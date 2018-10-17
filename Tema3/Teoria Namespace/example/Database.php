@@ -1,6 +1,7 @@
 <?php
+namespace mario\core;
 class Database{
     function __construct(){
-        #code...
+        echo "Holi";
     }
 }
