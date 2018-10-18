@@ -5,7 +5,7 @@ class App{
     protected $params = [];
 
     public function __construct(){
-        $url = $this->parse_url();
+        $url = $this->parseUrl();
         $url[0] = isset($url[0]) ? ucfirst($url[0]) : 'Books';
         if(file_exists('app/controllers/'.$url[0].'Controller.php')){
             $name = $url[0];
