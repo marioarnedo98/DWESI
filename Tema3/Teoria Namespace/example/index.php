@@ -1,3 +1,3 @@
 <?php
 require 'Database.php';
-new Database();
+new mario\core\Database();
