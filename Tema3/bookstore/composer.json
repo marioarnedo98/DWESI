@@ -1,0 +1,10 @@
+{
+    "require": {
+        "setasign/fpdf":"^1.8"
+    },
+    "autoload": {
+        "classmap": [
+            "app/core", "app/models", "app/controllers"
+        ]
+    }
+}
