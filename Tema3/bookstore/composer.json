@@ -1,6 +1,7 @@
 {
     "require": {
-        "setasign/fpdf":"^1.8"
+        "setasign/fpdf":"^1.8",
+        "illuminate/database": "^5.5"
     },
     "autoload": {
         "classmap": [
