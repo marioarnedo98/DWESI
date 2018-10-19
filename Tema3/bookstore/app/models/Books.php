@@ -1,6 +1,7 @@
 <?php
-use Illuminate\Database\Capsule\Manager as Eloquent;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class Books extends Eloquent{
-    
+class Books extends Eloquent
+{
+
 }
