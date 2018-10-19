@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App' => $baseDir . '/app/core/App.php',
+    'Books' => $baseDir . '/app/models/Books.php',
     'BooksController' => $baseDir . '/app/controllers/BooksController.php',
     'Controller' => $baseDir . '/app/core/Controller.php',
+    'FPDF' => $vendorDir . '/setasign/fpdf/fpdf.php',
 );
