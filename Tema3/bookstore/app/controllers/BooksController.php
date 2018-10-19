@@ -1,7 +1,8 @@
 <?php
 class BooksController extends Controller{
    public function index(){
-       $this->view('index.html' , ['books'=> "Mis libros"]);
+       $books = Books::all();
+       $this->view('index.html' , ['books'=> $books]);
    }
    public function add(){
     $this->view('add.html' , ['books'=> "Mis libros"]);
