@@ -14,7 +14,9 @@ class BooksController extends Controller
     }
     public function delete()
     {
-        $this->view('delete.html', ['eliminar' => "ha sido elimininado"]);
+       $id=  func_get_args();
+        Books::destroy($id);
+        header("Location: .");
 
     }
 }

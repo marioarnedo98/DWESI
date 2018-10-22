@@ -1,2 +1,5 @@
+<!DOCTYPE html>
+<h1>add</h1>
 <?php
-echo $data["anadir"];
+
+
