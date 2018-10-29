@@ -84,6 +84,7 @@ class ComposerStaticInitcb5d56b4d4823c03946c863ea9524c91
         'BooksController' => __DIR__ . '/../..' . '/app/controllers/BooksController.php',
         'Controller' => __DIR__ . '/../..' . '/app/core/Controller.php',
         'FPDF' => __DIR__ . '/..' . '/setasign/fpdf/fpdf.php',
+        'Files' => __DIR__ . '/../..' . '/app/models/Files.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

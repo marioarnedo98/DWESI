@@ -11,4 +11,5 @@ return array(
     'BooksController' => $baseDir . '/app/controllers/BooksController.php',
     'Controller' => $baseDir . '/app/core/Controller.php',
     'FPDF' => $vendorDir . '/setasign/fpdf/fpdf.php',
+    'Files' => $baseDir . '/app/models/Files.php',
 );

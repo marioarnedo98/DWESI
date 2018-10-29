@@ -4,6 +4,7 @@ ob_start();
 <table class="table">
   <thead class="thead-dark">
     <tr>
+      <th scope="col">Img</th>
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Authors</th>
@@ -14,6 +15,7 @@ ob_start();
   <tbody>
   <?php foreach($data['books'] as $book):
                echo "<tr>";
+               echo '<td><img src="data:image/jpeg;base64, '. base64_encode($book->files->filedata) .'"class="read-img"/></td>';
                     echo "<td>".$book['id']."</td>";
                    echo "<td>".$book['name']."</td>";
                    echo "<td>".$book['authors']."</td>";
