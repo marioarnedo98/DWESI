@@ -12,4 +12,5 @@ return array(
     'Controller' => $baseDir . '/app/core/Controller.php',
     'FPDF' => $vendorDir . '/setasign/fpdf/fpdf.php',
     'Files' => $baseDir . '/app/models/Files.php',
+    'PDF' => $baseDir . '/app/core/PDF.php',
 );

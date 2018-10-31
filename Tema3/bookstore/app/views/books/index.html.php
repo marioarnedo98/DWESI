@@ -25,14 +25,28 @@ ob_start();
                endforeach?>
                
   </tbody>
+  
 </table>
-<!-- código HTMl botón subir (top)-->
+<a href="<?=ROOT_URL?>books/pdf">Convertir a PDF</a>
 <a href="<?=ROOT_URL?>books/add" class="boton-subir">
-  <!-- link del icono http://fontawesome.io/icon/rocket/ -->
   <i class="fa fa-book" aria-hidden="true"></i>
 </a>
-
-
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <?php 
+       for ($i=1; $i <=$data['numpages'] ; $i++) { 
+        echo "<li class='page-item'><a class='page-link' href='".ROOT_URL."?page=".$i."'>$i</a></li>";
+        
+       }
+    ?>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
 
 <?php $content= ob_get_clean();
 include 'app/views/layout.html.php';
