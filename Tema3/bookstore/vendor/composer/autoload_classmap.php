@@ -13,4 +13,6 @@ return array(
     'FPDF' => $vendorDir . '/setasign/fpdf/fpdf.php',
     'Files' => $baseDir . '/app/models/Files.php',
     'PDF' => $baseDir . '/app/core/PDF.php',
+    'Users' => $baseDir . '/app/models/Users.php',
+    'UsersController' => $baseDir . '/app/controllers/UsersController.php',
 );
