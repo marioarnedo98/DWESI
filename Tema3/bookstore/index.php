@@ -1,7 +1,7 @@
 <?php
 
-//Start Session
-//session_start();
+// Start Session
+session_start();
 
 //Composer autoloader
 require_once 'vendor/autoload.php';

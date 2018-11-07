@@ -3,7 +3,8 @@
   outline: none;
 }
 
-body.registerusers {
+body.registerusers,
+body.loginusers {
   margin: 0;
   padding: 0;
   background:url(http://dwesi/Tema3/bookstore/public/images/books_register.jpg);
@@ -15,7 +16,7 @@ body.registerusers {
 
 #login-box {
   position: relative;
-  margin: 5% auto;
+  margin: 15% auto;
   width: 600px;
   height: 400px;
   background: #FFF;

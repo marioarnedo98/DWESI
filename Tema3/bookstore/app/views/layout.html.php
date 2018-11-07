@@ -1,6 +1,7 @@
 <?php
  $pag_actual=($_SERVER['REQUEST_URI']);
 $pag_cortada= explode("/", $pag_actual);
+// var_dump($_SESSION);
 ?>
 <html>
 <head>
@@ -14,12 +15,19 @@ $pag_cortada= explode("/", $pag_actual);
 
 <div class="topnav">
   <a class="active home" href="<?=ROOT_URL?>">Home</a>
+  
   <div class="topnav-right">
-    <a href="#">Login</a>
+  <?php if(isset($_SESSION['is_logged_in'])):?>
+  <p>Bienvenido <?= print($_SESSION['user_data']['name']); ?></p>
+  <a href="<?= ROOT_URL?>users/logout"">Logout</a>
+<?php else:?>
+<a href="<?= ROOT_URL?>users/login">Login</a>
     <a href="<?= ROOT_URL?>users/register">Register</a>
+<?php endif;?>
   </div>
 </div>
 <div class="container">
+<?=print Messages::display()?>
 <?=$content?>
 
 </div>

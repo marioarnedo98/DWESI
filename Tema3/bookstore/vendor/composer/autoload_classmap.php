@@ -12,6 +12,7 @@ return array(
     'Controller' => $baseDir . '/app/core/Controller.php',
     'FPDF' => $vendorDir . '/setasign/fpdf/fpdf.php',
     'Files' => $baseDir . '/app/models/Files.php',
+    'Messages' => $baseDir . '/app/core/Messages.php',
     'PDF' => $baseDir . '/app/core/PDF.php',
     'Users' => $baseDir . '/app/models/Users.php',
     'UsersController' => $baseDir . '/app/controllers/UsersController.php',
