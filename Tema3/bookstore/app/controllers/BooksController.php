@@ -14,22 +14,29 @@ class BooksController extends Controller
 
     public function add()
     {
-        if($_SERVER['REQUEST_METHOD'] == 'GET'){
-            $this->view('add.html', ['anadir' => "ha sido añadido"]);
+        if(!isset($_SESSION['is_logged_in'])){
+            Messages::setMsg('No estas registrado', 'error');
+            header("Location: " . ROOT_URL);
         }
-        elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
+        else{
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
            Books::add();
            header("Location: ".ROOT_URL);
-        }
-        
-
+        }else{
+            $this->view('add.html', ['añadir'=>""]);
+        }   
+    }
     }
     public function delete()
-    {
+    {  
+        if(!isset($_SESSION['is_logged_in'])){
+        Messages::setMsg('No estas registrado', 'error');
+        header("Location: " . ROOT_URL);
+    }else{
        $id=  func_get_args();
         Books::destroy($id);
         header("Location: ".ROOT_URL);
-
+    }
     }
     public function read(){
         $id=  func_get_args();

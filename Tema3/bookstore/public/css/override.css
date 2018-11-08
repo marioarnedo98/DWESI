@@ -180,3 +180,10 @@
     width: 100px;
     height: 120px;
   }
+.dropdown-menu.show li a.logout{
+  width: 100%;
+}
+.dropdown-menu.show li a.logout:hover{
+  background-color: #4CAF50;
+color: white;
+}

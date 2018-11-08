@@ -9,7 +9,9 @@ ob_start();
       <th scope="col">Name</th>
       <th scope="col">Authors</th>
       <th scope="col">ISBN</th>
+      <?php if(isset($_SESSION['is_logged_in'])):?>
       <th scope="col">Actions</th>
+      <?php endif;?>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +22,9 @@ ob_start();
                    echo "<td>".$book['name']."</td>";
                    echo "<td>".$book['authors']."</td>";
                    echo "<td>".$book['isbn']."</td>";
+                   if(isset($_SESSION['is_logged_in'])){
                    echo "<td>"."<a href='". ROOT_URL."books/delete/".$book['id']."' class='btn btn-danger peligro'>Delete</a>"."<a href='". ROOT_URL."/books/read/".$book['id']."' class='btn btn-info'>Read</a>"."</td>";
+                   }
                echo "</td>";
                endforeach?>
                
@@ -28,9 +32,11 @@ ob_start();
   
 </table>
 <a href="<?=ROOT_URL?>books/pdf">Convertir a PDF</a>
+<?php if(isset($_SESSION['is_logged_in'])):?>
 <a href="<?=ROOT_URL?>books/add" class="boton-subir">
   <i class="fa fa-book" aria-hidden="true"></i>
 </a>
+  <?php endif;?>
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item disabled">

@@ -5,7 +5,6 @@ class Books extends Eloquent
 {
     public function scopeAdd()
     {
-
         $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if ($post['name'] == "" ||
             $post['price'] == "" ||
@@ -13,6 +12,7 @@ class Books extends Eloquent
             $post['isbn'] == "" ||
             $post['publisher'] == "" ||
             $post['published_date'] == "") {
+                Messages::setMsg('Incorrect Book', 'error');
             header("Location: " . ROOT_URL . "books/add");
         } else {
             $this->name = $post['name'];

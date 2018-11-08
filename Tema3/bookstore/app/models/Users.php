@@ -5,6 +5,7 @@ class Users extends Eloquent{
         $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if ($post['username'] == "" ||
             $post['password'] == "" ) {
+            Messages::setMsg('Incorrect Register', 'error');
             header("Location: " . ROOT_URL . "users/register");
         }
         else{
@@ -27,11 +28,12 @@ class Users extends Eloquent{
 					"id" => $user->id,
 					"name" => $user->name
                 );
-                // var_dump($_SESSION);
+                $value= date('Y-m-d');
+                $ruta = "C:/wamp64/tmp";
+                setcookie("HeCookie", $value, time()+3600, $ruta);
 				header('Location' . ROOT_URL);
 			} else {
 					Messages::setMsg('Incorrect Login', 'error');
-                // echo "Esta todo mal";
            }
         }
 
