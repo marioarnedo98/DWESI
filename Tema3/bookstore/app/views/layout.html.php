@@ -24,7 +24,7 @@ $pag_cortada= explode("/", $pag_actual);
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bienvenido <?= print_r($_SESSION['user_data']['name'],true); ?><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a class="logout" href="<?= ROOT_URL?>users/logout"">Logout</a></li>
-            <li><p>Last Login: <?php echo $_COOKIE["HeCookie"]; ?></p></li>
+            <!-- <li><p>Last Login: <?php echo $_COOKIE["HeCookie"]; ?></p></li> -->
     <?php else:?>
     <a href="<?= ROOT_URL?>users/login">Login</a>
       <a href="<?= ROOT_URL?>users/register">Register</a>

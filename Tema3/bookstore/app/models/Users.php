@@ -20,6 +20,12 @@ class Users extends Eloquent{
             $post['password'] == "" ) {
             header("Location: " . ROOT_URL . "users/login");
         }
+        elseif($post["remember"]=="remember"){
+            $value= date('Y-m-d');
+            $ruta = "C:/wamp64/tmp";
+            setcookie("HeCookie", $value, time()+7*24*60*60, $ruta);
+            header('Location' . ROOT_URL);
+        }
         else{
             $user = $this->where('name', $post['username'])->first();
 			if ($user->password == md5($post['password'])) {

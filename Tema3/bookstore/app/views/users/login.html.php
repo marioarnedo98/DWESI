@@ -7,6 +7,7 @@ ob_start();
     <form action="<?= ROOT_URL?>users/login" enctype="multipart/form-data"  id="form-1" method="POST">
     <input type="text" name="username" placeholder="Username" />
     <input type="password" name="password" placeholder="Password" />
+    <input type="checkbox" name="remember" value="remember"> Remember me<br>
     
     <input type="submit" name="signup_submit" value="Login" />
   </div>
