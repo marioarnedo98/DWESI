@@ -1,49 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="assets/img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MacGregor</title>
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/Article-List.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/Footer-Clean.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/styles.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/Team-Boxed.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/normalize.css" />
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/demo.css" />
-    <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/component.css" />
-    
-</head>
-
-<body style="
-background-color: #FFF;
-">
-    <div>
-        <nav class="navbar navbar-light navbar-expand-md navigation-clean">
-            <div class="container"><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse"
-                    id="navcol-1">
-                <nav class="menu menu--sebastian">
-					<ul class="menu__list">
-                        <li class="menu__item"><a href="index.html" class="menu__link oculta">Inicio</a></li>
-						<li class="menu__item"><a href="calendario.html" class="menu__link">Calendario</a></li>
-                        <li class="menu__item"><a href="galeria.html" class="menu__link">Galeria</a></li>
-                        <li class="menu__item icono"><a class="navbar-brand" href="/cono"><img src="<?=ROOT_URL?>/public/img/logoconor.png" class="logo" alt="cono mcgregor" ></a></li>
-						<li class="menu__item"><a href="sobre_mi.html" class="menu__link">Sobre Mi</a></li>
-						<li class="menu__item"><a href="contacto.html" class="menu__link">Contacto</a></li>
-					</ul>
-				</nav>
-                </div>
-            </div>
-        </nav>
-    </div>
-         
+<?php
+ob_start();
+?>      
     <div class="carousel slide" data-ride="carousel" id="carousel-1">
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
@@ -93,41 +50,5 @@ background-color: #FFF;
             </div>
         </div>
     </div>
-    <div class="footer-clean">
-        <footer>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>Menu</h3>
-                        <ul>
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="calendario.html">Calendario</a></li>
-                            <li><a href="galeria.html">Galeria</a></li>
-                            <li><a href="sobre_mi.html">Info</a></li>
-                            <li><a href="contacto.html">Contacto</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>Contacto</h3>
-                        <ul>
-                            <li><a href="mailto:mcgregor@ufcfighter.com">Email: mcgregor@ufcfighter.com</a></li>
-                        </ul>
-                        <ul>
-                            <li><a>Telefono: (1) 866 415 1336</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 item social"><a href="https://www.facebook.com/thenotoriousmma/"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/TheNotoriousMMA"><i class="icon ion-social-twitter"></i></a><a href="https://www.instagram.com/thenotoriousmma"><i class="icon ion-social-instagram"></i></a>
-                        <p class="copyright">Hecho con <i>♥</i> por Mariquitos</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/classie.js"></script>
-    <script src="assets/js/clipboard.min.js"></script>
-  
-</body>
-
-</html>
+  <?php $content= ob_get_clean();
+include 'app/views/layout.html.php';
