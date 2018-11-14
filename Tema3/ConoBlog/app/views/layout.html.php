@@ -6,7 +6,7 @@ $pag_cortada= explode("/", $pag_actual);
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" href="<?=ROOT_URL?>/public/img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MacGregor</title>
     <link rel="stylesheet" href="<?=ROOT_URL?>/public/bootstrap/css/bootstrap.min.css">
@@ -21,6 +21,7 @@ $pag_cortada= explode("/", $pag_actual);
     <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/normalize.css" />
     <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/demo.css" />
     <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/component.css" />
+    <link rel="stylesheet" href="<?=ROOT_URL?>/public/css/calendario.css" />
     
 </head>
 
@@ -34,12 +35,13 @@ background-color: #FFF;
                     id="navcol-1">
                 <nav class="menu menu--sebastian">
 					<ul class="menu__list">
-                        <li class="menu__item"><a href="index.html" class="menu__link oculta">Inicio</a></li>
-						<li class="menu__item"><a href="calendario.html" class="menu__link">Calendario</a></li>
-                        <li class="menu__item"><a href="galeria.html" class="menu__link">Galeria</a></li>
-                        <li class="menu__item icono"><a class="navbar-brand" href="/cono"><img src="<?=ROOT_URL?>/public/img/logoconor.png" class="logo" alt="cono mcgregor" ></a></li>
-						<li class="menu__item"><a href="sobre_mi.html" class="menu__link">Sobre Mi</a></li>
-						<li class="menu__item"><a href="contacto.html" class="menu__link">Contacto</a></li>
+                        <li class="menu__item"><a href="<?= ROOT_URL?>" class="menu__link oculta">Inicio</a></li>
+                        <li class="menu__item"><a href="<?= ROOT_URL?>Pages/sobre_mi" class="menu__link">Sobre Mi</a></li>
+						<li class="menu__item"><a href="<?= ROOT_URL?>Pages/contacto" class="menu__link">Contacto</a></li>
+                        <li class="menu__item icono"><a class="navbar-brand" href="<?= ROOT_URL?>Pages/index"><img src="<?=ROOT_URL?>/public/img/logoconor.png" class="logo" alt="cono mcgregor" ></a></li>
+                        <li class="menu__item"><a href="<?= ROOT_URL?>users/login" class="menu__link">Login</a></li>
+                        <li class="menu__item"><a href="<?= ROOT_URL?>users/register" class="menu__link">Register</a></li>
+                        <li class="menu__item"><a href="<?= ROOT_URL?>Posts/index" class="menu__link">Blog</a></li>
 					</ul>
 				</nav>
                 </div>
@@ -61,7 +63,7 @@ background-color: #FFF;
                         <ul>
                             <li><a href="index.html">Inicio</a></li>
                             <li><a href="calendario.html">Calendario</a></li>
-                            <li><a href="galeria.html">Galeria</a></li>
+                            <li><a href="galeria.html">Blog</a></li>
                             <li><a href="sobre_mi.html">Info</a></li>
                             <li><a href="contacto.html">Contacto</a></li>
                         </ul>

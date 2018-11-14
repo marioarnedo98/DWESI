@@ -1,15 +1,15 @@
 <?php
-class BooksController extends Controller
+class PostsController extends Controller
 {
     public function index()
     {
         $page= isset($_GET['page'])?$_GET['page']:1;
         $perpage= 5;
         $offset= ($page-1)*$perpage;
-        $numrows = Books::count();
+        $numrows =Posts::count();
         $numpages=ceil($numrows/$perpage);
-        $books= Books::skip($offset)->take($perpage)->get();   
-        $this->view('index.html', ['books' => $books, 'numpages' => $numpages, 'page' => $page]);
+        $blogs=Posts::skip($offset)->take($perpage)->get();   
+        $this->view('index.html', ['posts' => $blogs, 'numpages' => $numpages, 'page' => $page]);
     }
 
     public function add()
@@ -20,7 +20,7 @@ class BooksController extends Controller
         }
         else{
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
-           Books::add();
+          Posts::add();
            header("Location: ".ROOT_URL);
         }else{
             $this->view('add.html', ['añadir'=>""]);
@@ -34,22 +34,22 @@ class BooksController extends Controller
         header("Location: " . ROOT_URL);
     }else{
        $id=  func_get_args();
-        Books::destroy($id);
+       Posts::destroy($id);
         header("Location: ".ROOT_URL);
     }
     }
     public function read(){
         $id=  func_get_args();
-        $book=Books::find($id);
-        $this->view('read.html', ['book' => $book]);
+        $blog=Books::find($id);
+        $this->view('read.html', ['book' => $blog]);
     }
     public function pdf(){
-        $books=Books::all();
+        $blogs=Books::all();
         $pdf= new PDF('L','mm','A4');
         $header = array('ID','Name', '$','Authors', 'Publisher', 'ISBN');
         $pdf->SetFont('Arial','',14);
         $pdf->AddPage();
-        $pdf->BuildTable($header,$books);
+        $pdf->BuildTable($header,$blogs);
         $pdf->Output('LibrosdeMario.pdf', 'D');
     }
 }

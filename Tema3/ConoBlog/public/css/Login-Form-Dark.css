@@ -114,3 +114,13 @@ color: #fff;
 .carousel{
   top:-75px;
 }
+div.login input{
+  background: #214a80;
+    border: none;
+    border-radius: 4px;
+    padding: 11px;
+    box-shadow: none;
+    margin-top: 26px;
+    text-shadow: none;
+    outline: none;
+}

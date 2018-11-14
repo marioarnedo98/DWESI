@@ -80,13 +80,14 @@ class ComposerStaticInitcb5d56b4d4823c03946c863ea9524c91
 
     public static $classMap = array (
         'App' => __DIR__ . '/../..' . '/app/core/App.php',
-        'Books' => __DIR__ . '/../..' . '/app/models/Books.php',
-        'BooksController' => __DIR__ . '/../..' . '/app/controllers/BooksController.php',
         'Controller' => __DIR__ . '/../..' . '/app/core/Controller.php',
         'FPDF' => __DIR__ . '/..' . '/setasign/fpdf/fpdf.php',
         'Files' => __DIR__ . '/../..' . '/app/models/Files.php',
         'Messages' => __DIR__ . '/../..' . '/app/core/Messages.php',
         'PDF' => __DIR__ . '/../..' . '/app/core/PDF.php',
+        'PagesController' => __DIR__ . '/../..' . '/app/controllers/PagesController.php',
+        'Posts' => __DIR__ . '/../..' . '/app/models/Posts.php',
+        'PostsController' => __DIR__ . '/../..' . '/app/controllers/PostsController.php',
         'Users' => __DIR__ . '/../..' . '/app/models/Users.php',
         'UsersController' => __DIR__ . '/../..' . '/app/controllers/UsersController.php',
     );

@@ -7,13 +7,14 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App' => $baseDir . '/app/core/App.php',
-    'Books' => $baseDir . '/app/models/Books.php',
-    'BooksController' => $baseDir . '/app/controllers/BooksController.php',
     'Controller' => $baseDir . '/app/core/Controller.php',
     'FPDF' => $vendorDir . '/setasign/fpdf/fpdf.php',
     'Files' => $baseDir . '/app/models/Files.php',
     'Messages' => $baseDir . '/app/core/Messages.php',
     'PDF' => $baseDir . '/app/core/PDF.php',
+    'PagesController' => $baseDir . '/app/controllers/PagesController.php',
+    'Posts' => $baseDir . '/app/models/Posts.php',
+    'PostsController' => $baseDir . '/app/controllers/PostsController.php',
     'Users' => $baseDir . '/app/models/Users.php',
     'UsersController' => $baseDir . '/app/controllers/UsersController.php',
 );

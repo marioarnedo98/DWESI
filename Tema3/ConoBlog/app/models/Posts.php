@@ -1,26 +1,20 @@
 <?php
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class Books extends Eloquent
+class Posts extends Eloquent
 {
     public function scopeAdd()
     {
         $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        if ($post['name'] == "" ||
-            $post['price'] == "" ||
+        if ($post['title'] == "" ||
             $post['authors'] == "" ||
-            $post['isbn'] == "" ||
-            $post['publisher'] == "" ||
-            $post['published_date'] == "") {
-                Messages::setMsg('Incorrect Book', 'error');
-            header("Location: " . ROOT_URL . "books/add");
+            $post['content'] == "") {
+                Messages::setMsg('Incorrect Blog', 'error');
+            header("Location: " . ROOT_URL . "Blog/add");
         } else {
-            $this->name = $post['name'];
-            $this->price = $post['price'];
+            $this->title = $post['title'];
             $this->authors = $post['authors'];
-            $this->isbn = $post['isbn'];
-            $this->publisher = $post['publisher'];
-            $this->published_date = $post['published_date'];
+            $this->content = $post['content'];
             $this->save();
             if (!is_uploaded_file($_FILES['cover']['tmp_name'])) {
                 $error = 'There was no file uploaded!';

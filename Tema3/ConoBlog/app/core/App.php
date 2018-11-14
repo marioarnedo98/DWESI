@@ -2,14 +2,14 @@
 
 class App
 {
-    protected $controller = 'Books';
+    protected $controller = 'pages';
     protected $method = 'index';
     protected $params = [];
 
     public function __construct()
     {
         $url = $this->parseUrl();
-        $url[0] = isset($url) ? ucfirst($url[0]) : 'Books';
+        $url[0] = isset($url) ? ucfirst($url[0]) : 'Pages';
         if (file_exists('app/controllers/' . $url[0] . 'Controller.php')) {
             $name = $url[0];
             $this->controller = $url[0] . 'Controller';
