@@ -3,7 +3,7 @@ ob_start();
 ?>
 <div class="container">
 
-<div class="row">
+<div class="row blog_entries">
 <?php foreach($data['posts'] as $post):
 $str = $post['content'];
 $wraped= wordwrap($str,200);
@@ -18,7 +18,6 @@ $real_date= $date[0];
         echo "<h4 class='card-title'>".$post['title']."</h4>";
         echo "<h4 class='card-title authors'>Authors: ".$post['authors']."</h4>";
         echo "<h4 class='card-title authors'>Date Updated: ".$real_date."</h4>";
-        echo $post['real_author'];
         echo "<p class='card-text'>";
         echo $new_content;
         echo "</p>";

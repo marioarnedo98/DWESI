@@ -115,3 +115,6 @@ border: 0px;
     border-radius: .25rem;
     z-index: 999;
 }
+.blog_entries{
+    margin-top: 40px;
+}
