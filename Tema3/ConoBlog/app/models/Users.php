@@ -15,12 +15,15 @@ class Users extends Eloquent{
         }
     }
     public function scopelogin(){
+
         $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        // var_dump($post);
+        // die();
         if ($post['username'] == "" ||
             $post['password'] == "" ) {
             header("Location: " . ROOT_URL . "users/login");
         }
-        elseif($post["remember"]=="remember"){
+        elseif(isset($post["remember"])){
             $value= date('Y-m-d');
             $ruta = "C:/wamp64/tmp";
             setcookie("HeCookie", $value, time()+7*24*60*60, $ruta);
@@ -37,11 +40,16 @@ class Users extends Eloquent{
                 $value= date('Y-m-d');
                 $ruta = "C:/wamp64/tmp";
                 setcookie("HeCookie", $value, time()+3600, $ruta);
-				header('Location' . ROOT_URL);
+				header('Location' . ROOT_URL. "users/login");
 			} else {
 					Messages::setMsg('Incorrect Login', 'error');
            }
         }
 
-}
+
+    }
+    public function posts()
+    {
+        return $this->hasOne('Posts');
+    }
 }

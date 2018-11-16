@@ -1,40 +1,38 @@
 <?php
 ob_start();
 ?>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Img</th>
-      <th scope="col">#</th>
-      <th scope="col">Title</th>
-      <th scope="col">Authors</th>
-      <?php if(isset($_SESSION['is_logged_in'])):?>
-      <th scope="col">Actions</th>
-      <?php endif;?>
-    </tr>
-  </thead>
-  <tbody>
-  <?php foreach($data['posts'] as $post):
-               echo "<tr>";
-               echo '<td><img src="data:image/jpeg;base64, '. base64_encode($post->files->filedata) .'"class="read-img"/></td>';
-                    echo "<td>".$post['id']."</td>";
-                   echo "<td>".$post['title']."</td>";
-                   echo "<td>".$post['authors']."</td>";
-                   if(isset($_SESSION['is_logged_in'])){
-                   echo "<td>"."<a href='". ROOT_URL."books/delete/".$post['id']."' class='btn btn-danger peligro'>Delete</a>"."<a href='". ROOT_URL."/books/read/".$post['id']."' class='btn btn-info'>Read</a>"."</td>";
-                   }
-               echo "</td>";
-               endforeach?>
-               
-  </tbody>
-  
-</table>
-<a href="<?=ROOT_URL?>books/pdf">Convertir a PDF</a>
-<?php if(isset($_SESSION['is_logged_in'])):?>
-<a href="<?=ROOT_URL?>books/add" class="boton-subir">
-  <i class="fa fa-book" aria-hidden="true"></i>
-</a>
-  <?php endif;?>
+<div class="container">
+
+<div class="row">
+<?php foreach($data['posts'] as $post):
+$str = $post['content'];
+$wraped= wordwrap($str,200);
+$lines= explode("\n",$wraped);
+$new_content= $lines[0].'...';
+$date= explode(" ",$post['updated_at']);
+$real_date= $date[0];
+    echo "<div class='col-md-4'>";
+    echo "<div class='card'>";
+    echo "<img src='data:image/jpeg;base64, " . base64_encode($post->files->filedata) ."'class='card-img-top'  alt='Card image cap'/>";
+    echo "<div class='card-body'>";
+        echo "<h4 class='card-title'>".$post['title']."</h4>";
+        echo "<h4 class='card-title authors'>Authors: ".$post['authors']."</h4>";
+        echo "<h4 class='card-title authors'>Date Updated: ".$real_date."</h4>";
+        echo $post['real_author'];
+        echo "<p class='card-text'>";
+        echo $new_content;
+        echo "</p>";
+        if(isset($_SESSION['is_logged_in']) && sizeof($lines)>1 && $post['real_author']== $_SESSION['user_data']['name']){
+       echo "<a href='". ROOT_URL."/Posts/read/".$post['id']."' class='btn btn-info'>Read</a>"."<a href='". ROOT_URL."Posts/delete/".$post['id']."' class='btn btn-danger peligro'>Remove</a>";
+        }elseif(isset($_SESSION['is_logged_in']) && $post['real_author']== $_SESSION['user_data']['name']){
+          echo "<a href='". ROOT_URL."Posts/delete/".$post['id']."' class='btn btn-danger peligro'>Remove</a>";
+        }
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+    endforeach?>
+</div>
+<div class="row">
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item disabled">
@@ -42,7 +40,7 @@ ob_start();
     </li>
     <?php 
        for ($i=1; $i <=$data['numpages'] ; $i++) { 
-        echo "<li class='page-item'><a class='page-link' href='".ROOT_URL."?page=".$i."'>$i</a></li>";
+        echo "<li class='page-item'><a class='page-link' href='".ROOT_URL."Posts/?page=".$i."'>$i</a></li>";
         
        }
     ?>
@@ -51,7 +49,11 @@ ob_start();
     </li>
   </ul>
 </nav>
-
-<?php $content= ob_get_clean();
+</div>
+<?php if(isset($_SESSION['is_logged_in'])):?>
+<?php echo "<a href='". ROOT_URL."Posts/add/".$post['id']."' class='btn btn-info add pull-right'>+ Add</a>";?>
+  <?php endif;?>
+</div>
+<?php $content = ob_get_clean();
 include 'app/views/layout.html.php';
-// print_r($data['books']);
+?>

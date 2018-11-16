@@ -8,7 +8,7 @@ ob_start();
             <div class="illustration"><i style="font-size:80px" class="fa">&#xf007;</i></div>
             <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Username"></div>
             <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><input type="checkbox" name="remember" value="remember"> Remember me<br></div>
+            <div class="form-group"><input type="checkbox" name="remember" value="remember">Remember me<br></div>
             <div class="form-group login"><input type="submit" name="signup_submit" value="Login"/></div>
     </form>
     </div>

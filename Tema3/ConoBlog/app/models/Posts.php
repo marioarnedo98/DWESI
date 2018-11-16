@@ -15,7 +15,9 @@ class Posts extends Eloquent
             $this->title = $post['title'];
             $this->authors = $post['authors'];
             $this->content = $post['content'];
+            $this->real_author = $_SESSION['user_data']['name'];
             $this->save();
+            Messages::setMsg('You add a new post! Congrats!', 'success');
             if (!is_uploaded_file($_FILES['cover']['tmp_name'])) {
                 $error = 'There was no file uploaded!';
                 Messages::setMsg($error, 'error');
@@ -36,5 +38,8 @@ class Posts extends Eloquent
     public function files()
     {
         return $this->hasOne('Files');
+    }
+    public function users(){
+        return $this->belongsTo('Users');
     }
 }

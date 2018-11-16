@@ -40,7 +40,7 @@ class PostsController extends Controller
     }
     public function read(){
         $id=  func_get_args();
-        $blog=Books::find($id);
+        $blog=Posts::find($id);
         $this->view('read.html', ['book' => $blog]);
     }
     public function pdf(){

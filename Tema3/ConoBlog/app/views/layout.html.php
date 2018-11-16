@@ -39,9 +39,14 @@ background-color: #FFF;
                         <li class="menu__item"><a href="<?= ROOT_URL?>Pages/sobre_mi" class="menu__link">Sobre Mi</a></li>
 						<li class="menu__item"><a href="<?= ROOT_URL?>Pages/contacto" class="menu__link">Contacto</a></li>
                         <li class="menu__item icono"><a class="navbar-brand" href="<?= ROOT_URL?>Pages/index"><img src="<?=ROOT_URL?>/public/img/logoconor.png" class="logo" alt="cono mcgregor" ></a></li>
+                        <li class="menu__item"><a href="<?= ROOT_URL?>Posts/index" class="menu__link">Blog</a></li>
+                        <?php if(isset($_SESSION['is_logged_in'])):?>
+                        <li class="menu__item"><a href="#" class="menu__link">Bienvenido: <?= print_r($_SESSION['user_data']['name'],true); ?></a></li>
+                        <li class="menu__item"><a href="<?= ROOT_URL?>users/logout" class="menu__link">Logout</a></li>
+                        <?php else:?>
                         <li class="menu__item"><a href="<?= ROOT_URL?>users/login" class="menu__link">Login</a></li>
                         <li class="menu__item"><a href="<?= ROOT_URL?>users/register" class="menu__link">Register</a></li>
-                        <li class="menu__item"><a href="<?= ROOT_URL?>Posts/index" class="menu__link">Blog</a></li>
+                        <?php endif;?>
 					</ul>
 				</nav>
                 </div>
@@ -49,8 +54,8 @@ background-color: #FFF;
         </nav>
     </div>
 <body class="<?php echo($pag_cortada[sizeof($pag_cortada)-1].$pag_cortada[sizeof($pag_cortada)-2])?>"> 
-<div class="main">
 <?=print_r (Messages::display(),true)?>
+<div class="main">
 <?=$content?>
 
 </div>
