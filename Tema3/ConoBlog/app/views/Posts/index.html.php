@@ -8,7 +8,11 @@ ob_start();
 $str = $post['content'];
 $wraped= wordwrap($str,200);
 $lines= explode("\n",$wraped);
+if (sizeof($lines)>1){
 $new_content= $lines[0].'...';
+}else{
+$new_content = $lines[0];
+}
 $date= explode(" ",$post['updated_at']);
 $real_date= $date[0];
     echo "<div class='col-md-4'>";
@@ -17,14 +21,18 @@ $real_date= $date[0];
     echo "<div class='card-body'>";
         echo "<h4 class='card-title'>".$post['title']."</h4>";
         echo "<h4 class='card-title authors'>Authors: ".$post['authors']."</h4>";
-        echo "<h4 class='card-title authors'>Date Updated: ".$real_date."</h4>";
         echo "<p class='card-text'>";
         echo $new_content;
         echo "</p>";
+        echo "<div class='card-header fecha_subida'>";
+        echo "<p> Updated at ".$real_date."</p>";
+        echo "</div>";
         if(isset($_SESSION['is_logged_in']) && sizeof($lines)>1 && $post['real_author']== $_SESSION['user_data']['name']){
        echo "<a href='". ROOT_URL."/Posts/read/".$post['id']."' class='btn btn-info'>Read</a>"."<a href='". ROOT_URL."Posts/delete/".$post['id']."' class='btn btn-danger peligro'>Remove</a>";
         }elseif(isset($_SESSION['is_logged_in']) && $post['real_author']== $_SESSION['user_data']['name']){
           echo "<a href='". ROOT_URL."Posts/delete/".$post['id']."' class='btn btn-danger peligro'>Remove</a>";
+        }elseif(!isset ($_SESSION['is_logged_in']) && sizeof($lines)>1){
+          echo "<a href='". ROOT_URL."/Posts/read/".$post['id']."' class='btn btn-info'>Read</a>";
         }
     echo "</div>";
     echo "</div>";

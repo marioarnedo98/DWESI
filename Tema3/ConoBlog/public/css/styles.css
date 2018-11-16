@@ -118,3 +118,12 @@ border: 0px;
 .blog_entries{
     margin-top: 40px;
 }
+.fecha_subida{
+  border-bottom: 0px;
+}
+.indexPosts .card-img-top {
+    max-height: 210px;
+}
+.indexPosts .card{
+    min-height: 68%;
+}

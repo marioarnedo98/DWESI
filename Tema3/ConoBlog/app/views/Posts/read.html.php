@@ -3,8 +3,10 @@ ob_start();
 ?>
 <div class="container">
 <div class="row">
-<?php foreach($data['book'] as $posts_r):?>
-<?php var_dump($posts_r);?>
+<?php foreach($data['book'] as $posts_r):
+$date= explode(" ",$posts_r['updated_at']);
+$real_date= $date[0];
+?>
     <div class="card">
     <div class="card-body">
         <h3 class="card-text"><?php print_r($posts_r['title']) ?></h3>
@@ -14,6 +16,9 @@ ob_start();
     <div class="card-body">
         <p class="card-text"><?php print_r($posts_r['content']);?></p>
     </div>
+    <div class='card-header fecha_subida'>
+        <p> Updated at <?php echo $real_date?></p>
+        </div>
     </div>
 <?php endforeach;?>
 </div>
