@@ -29,22 +29,22 @@
                             <div class="col-md-4">
                                 <img class="imagen_card" src="<?php echo $this->request->webroot;?>files/Books/photo/<?php echo h($book->photo)?>" alt="Card image cap">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                             <div class="card-body">
                 <h3 class="card-title"><?= h($book->title) ?></h3>
                 <h5 class="card-title"><?= $book->has('publisher') ? $this->Html->link($book->publisher->name, ['controller' => 'Publishers', 'action' => 'view', $book->publisher->id]) : '' ?></h5>
                 <p class="card-text"><?= h($book->description) ?></p>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $book->id] ,['class' =>'badge badge-pill badge-primary']) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $book->id],['class' =>'badge badge-pill badge-primary']) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $book->id] ,['class' =>'badge badge-pill badge-danger'], ['confirm' => __('Are you sure you want to delete # {0}?', $book->id)]) ?>
                 </div>
-                <ul class="list-group list-group-flush">
+                </div>
+                <div class="col-md-4 preciopp">
+                <ul class="list-group list-group-flush preciohh">
     <li class="list-group-item"><b>Price: </b><?= h($book->price) ?></li>
     <li class="list-group-item"><b>Quantity: </b>><?= h($book->quantity) ?></li>
                 </ul>
-                <div class="card-body">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $book->id] ,['class' =>'btn btn-primary']) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $book->id],['class' =>'btn btn-primary']) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $book->id] ,['class' =>'btn btn-primary'], ['confirm' => __('Are you sure you want to delete # {0}?', $book->id)]) ?>
-            </div>
-                            </div>
+                         </div>
                          </div>
                 
             </div>

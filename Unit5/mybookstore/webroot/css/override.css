@@ -4,3 +4,11 @@
     margin-bottom: 10px;
 
 }
+.preciopp{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+a.badge{
+    font-size: 100%;
+}

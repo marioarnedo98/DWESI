@@ -36,19 +36,28 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
-            </ul>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><?= $this->fetch('title') ?></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <?= $this->Html->link(__('List Authors'), ['controller' => 'Authors', 'action' => 'index'], ['class'=> 'nav-link']) ?>
+      </li>
+      <li class="nav-item">
+        <?= $this->Html->link(__('New Author'), ['controller' => 'Authors', 'action' => 'add'], ['class'=> 'nav-link']) ?>
+      </li>
+      <li class="nav-item">
+        <li class="name"><?= $this->Html->link(__('List Publishers'), ['controller' => 'Publishers', 'action' => 'index'], ['class'=> 'nav-link']) ?>
+      </li>
+      <li class="nav-item">
+        <?= $this->Html->link(__('New Publisher'), ['controller' => 'Publishers', 'action' => 'add'], ['class'=> 'nav-link']) ?>
+      </li>
+    </ul>
+  </div>
+</nav>
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
     <nav class="large-3 medium-4 columns" id="actions-sidebar">
