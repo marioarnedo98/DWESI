@@ -41,10 +41,21 @@ class AppController extends Controller
     {
         parent::initialize();
 
-        $this->loadComponent('RequestHandler', [
-            'enableBeforeRedirect' => false,
-        ]);
+        $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth',[
+            'authorize' => ['Controller'],
+            'loginRedirect'=>[
+                'controller'=>'Books',
+                'action' => 'index'
+            ],
+            'logoutRedirect'=>[
+                'controller'=>'Pages',
+                'action'=>'display',
+                'home'
+            ]
+        ]);
+
 
         /*
          * Enable the following component for recommended CakePHP security settings.
@@ -52,4 +63,17 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
     }
+    public function beforeFilter(Event $event){
+        $this->Auth->allow(['index', 'view', 'display']);
+    }
+    public function isAuthorized($user)
+{
+    // Admin can access every action
+    if (isset($user['role']) && $user['role'] === 'admin') {
+        return true;
+    }
+
+    // Default deny
+    return false;
+}
 }

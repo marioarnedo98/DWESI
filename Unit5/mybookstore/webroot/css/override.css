@@ -12,3 +12,6 @@
 a.badge{
     font-size: 100%;
 }
+.dropdown-menu.show a{
+    padding: 5px;
+}

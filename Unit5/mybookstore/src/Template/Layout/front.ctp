@@ -76,7 +76,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <span class="glyphicon glyphicon-shopping-cart nav-link"></span>
             </li>
             <li class="nav-item">
-            <p class="nav-link">Numero</p>
+            <p class="badge badge-pill badge-primary nav-link">225</p>
             </li>
         </ul>
             

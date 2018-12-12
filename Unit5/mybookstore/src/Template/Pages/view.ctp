@@ -24,6 +24,7 @@
     <h6><?= h($book->price) ?></h6>
     <h4><?= __('Quantity') ?></h4>
     <h6><?= h($book->quantity) ?></h6>
+    <?= $this->Html->link(__('Comprar'), ['action' => 'edit', $book->id],['class' =>'btn btn-primary']) ?>
 </div>
 </div>
 </div>

@@ -111,4 +111,12 @@ class BooksController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    public function isAuthorized($user)
+{
+    // Admin can access every action
+   if(in_array($this->request->getParam('action'), ['edit','delete','add'])){
+       return true;
+   }
+    return parent::isAuthorized($user);
+}
 }

@@ -66,4 +66,22 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+    public function show(){
+        $this->loadModel('Books');
+        $this->paginate=[
+            'contain'=>['Authors', 'Publishers']
+        ];
+        $books = $this->paginate($this->Books);
+        $this->set(compact('books'));
+        $this->set('_serialize', ['books']);
+    }
+    public function view(){
+        $path= func_get_args();
+        $this->loadModel('Books');
+        $book = $this->Books->get($path[0], [
+            'contain'=>['Authors', 'publishers']
+        ]);
+        $this->set('book', $book);
+        $this->set('_serialize', ['book']);
+    }
 }
