@@ -44,7 +44,8 @@ $this->layout='front';
                 <ul class="list-group list-group-flush preciohh">
     <li class="list-group-item"><b>Price: </b><?= h($book->price) ?></li>
     <li class="list-group-item"><b>Quantity: </b>><?= h($book->quantity) ?></li>
-    <?= $this->Html->link(__('Comprar'), ['action' => 'edit', $book->id],['class' =>'btn btn-primary']) ?>
+    <?=$this->Form->create('',['id'=>'add-form'.$book->id, 'url'=>['controller'=>'carts', 'action'=>'add',$book->id]])?>
+    <?=$this->Form->button(__('Comprar'), ['class'=>'btn btn-primary']);?>
                 </ul>
                          </div>
                          </div>

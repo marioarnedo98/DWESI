@@ -72,12 +72,7 @@ $cakeDescription = 'Bookstore, what a wonderfull place';
             <li class="nav-item">
             <?=$this->Html->link(__('Logout'), ['controller' => 'users', 'action' => 'logout'], ['class' => 'nav-link'])?>
             </li>
-            <li class="nav-item">
-            <span class="glyphicon glyphicon-shopping-cart nav-link"></span>
-            </li>
-            <li class="nav-item">
-            <p class="nav-link" id="cart-counter"></p>
-            </li>
+            
         </ul>
 
             <?php else: ?>
@@ -107,15 +102,5 @@ $cakeDescription = 'Bookstore, what a wonderfull place';
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script>
-$(document).ready(function(){
-  $('[id^=add-form]').submit(function (e){
-    e.preventDefault();
-    var tis= $(this);
-    $.post(tis.attr('action'), tis.serialize(), function (data){
-      $('#cart-counter').text(data);
-    });
-  });
-});
-</script>
+
 </html>

@@ -8,6 +8,8 @@ use Cake\Event\Event;
 class CartsController extends AppController{
     public $session;
     public function beforeFilter(Event $event){
+            $this->Auth->allow(['add', 'view']);
+        
         $this->session = $this->request->session();
         $this->loadModel('Books');
     }
@@ -16,20 +18,25 @@ class CartsController extends AppController{
     }
     public function add ($productId=null){
         $this->autoRender=false;
+       
         if($this->request->is('ajax')){
+          
             $allProducts= $this->session->read('cart');
+            
             if(null!=$allProducts){
                 if(array_key_exists($productId, $allProducts)){
                     $allProducts[$productId]++;
                 }else{
                     $allProducts[$productId]=1;
                 }
-        }
-        else{
-            $allProducts[$productId] =1;
-        }
-        $this->session->write ('cart', $allProducts);
             }
+            else{
+                $allProducts[$productId] =1;
+                
+            }
+            $this->session->write('cart', $allProducts);
+          
+        }
             $count= $this->getCount();
             $this->response->body(json_encode($count));
             return $this->response;
