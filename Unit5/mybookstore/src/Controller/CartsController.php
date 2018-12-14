@@ -16,7 +16,7 @@ class CartsController extends AppController{
     function beforeRender (Event $event){
         $this->viewBuilder()->layout('front');
     }
-    public function add ($productId=null){
+    public function add($productId=null){
         $this->autoRender=false;
        
         if($this->request->is('ajax')){
@@ -64,5 +64,20 @@ class CartsController extends AppController{
         }
         // debug
         $this->set(compact('products'));
+    }
+    public function update(){
+        if($this->request->is('post')){
+            if(!empty($this->request->data)){
+                $cart= array();
+                foreach($this->request->data['count'] as $index=>$count){
+                    if($count>0){
+                        $productId = $this->request->data['product_id'][$index];
+                        $cart[$productId]=$count;
+                    }
+                }
+                $this->session->write('cart', $cart);
+            }
+        }
+        $this->redirect(array('action'=>'view'));       
     }
 }

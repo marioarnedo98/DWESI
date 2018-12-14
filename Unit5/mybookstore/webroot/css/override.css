@@ -15,3 +15,8 @@ a.badge{
 .dropdown-menu.show a{
     padding: 5px;
 }
+@media (min-width: 768px){
+.navbar-nav>li>a {
+    padding-top: 3px;
+}
+}
