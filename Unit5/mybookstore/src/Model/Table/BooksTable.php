@@ -34,6 +34,9 @@ class BooksTable extends Table
      */
     public function initialize(array $config)
     {
+        $this->belongsTo('Categories',[
+            'foreignKey' => 'category_id'
+        ]);
         parent::initialize($config);
 
         $this->setTable('books');

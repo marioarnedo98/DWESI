@@ -63,7 +63,8 @@ class BooksController extends AppController
         }
         $authors = $this->Books->Authors->find('list', ['limit' => 200]);
         $publishers = $this->Books->Publishers->find('list', ['limit' => 200]);
-        $this->set(compact('book', 'authors', 'publishers'));
+        $categories = $this->Books->Categories->find('treeList');
+        $this->set(compact('categories'));
     }
 
     /**
@@ -89,7 +90,8 @@ class BooksController extends AppController
         }
         $authors = $this->Books->Authors->find('list', ['limit' => 200]);
         $publishers = $this->Books->Publishers->find('list', ['limit' => 200]);
-        $this->set(compact('book', 'authors', 'publishers'));
+        $categories = $this->Books->Categories->find('treeList');
+        $this->set(compact('categories'));
     }
 
     /**

@@ -17,7 +17,7 @@
         <div class="col-sm-1"><?= h($book->price) ?></div>
         <div class="col-sm-1"><?php echo $cuantity ?></div>
         <?php $total= $cuantity * $book->price;?>
-        <div class="col-sm-1"><?= $total ?></div>
+        <div class="col-sm-1"><?= $total ?>€</div>
     <?php $precio_total+= $total?>
     </div>
     <?php endforeach?>
@@ -28,7 +28,7 @@
             <h3>Total</h3>
         </div>
         <div class="col-sm-2">
-        <h3><?php echo $precio_total?></h3>
+        <h3><?php echo $precio_total?>€</h3>
         </div>
  
     </div>

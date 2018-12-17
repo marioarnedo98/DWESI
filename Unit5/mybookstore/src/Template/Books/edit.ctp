@@ -27,6 +27,7 @@
         <?php
             echo $this->Form->control('isbn');
             echo $this->Form->control('title');
+            echo $this->Form->control('category_id');
             echo $this->Form->control('description');
             echo $this->Form->control('author_id', ['options' => $authors]);
             echo $this->Form->control('publisher_id', ['options' => $publishers]);
