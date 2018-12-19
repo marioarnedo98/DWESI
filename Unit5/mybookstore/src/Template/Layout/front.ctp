@@ -95,6 +95,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </nav>
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
+    <?= $this->Flash->render() ?>
+    <?= $this->element('menu'); ?>
+    <?php $path = $this->cell('Categories::path');?>
+    <?= $path ?>
     <!-- Contenido -->
         <?= $this->fetch('content') ?>
     </div>

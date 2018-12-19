@@ -63,6 +63,13 @@ class AppController extends Controller
         //$this->loadComponent('Security');
     }
     public function beforeFilter(Event $event){
+        $p= $this->request->params['pass'];
+        debug($p);
+        if(isset($p[0])){
+            $this->request->session()->write('lcat', $p[0]);
+        }else{
+            $this->request->session()->delete('lcat');
+        }
         $this->Auth->allow(['index', 'view', 'display','show']);
     }
     public function isAuthorized($user)

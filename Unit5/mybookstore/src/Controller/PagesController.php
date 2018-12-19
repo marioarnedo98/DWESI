@@ -66,22 +66,44 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
-    public function show(){
+    public function show()
+    {
         $this->loadModel('Books');
-        $this->paginate=[
-            'contain'=>['Authors', 'Publishers']
+        $this->paginate = [
+            'contain' => ['Authors', 'Publishers'],
         ];
         $books = $this->paginate($this->Books);
         $this->set(compact('books'));
         $this->set('_serialize', ['books']);
     }
-    public function view(){
-        $path= func_get_args();
+    public function view()
+    {
+        $path = func_get_args();
         $this->loadModel('Books');
         $book = $this->Books->get($path[0], [
-            'contain'=>['Authors', 'publishers']
+            'contain' => ['Authors', 'publishers'],
         ]);
         $this->set('book', $book);
         $this->set('_serialize', ['book']);
+    }
+    public function listBy($category, $parent = null)
+    {
+        log($category);
+        $this->loadModel('Books');
+        $descendants = $this->Books->Categories->find('children', ['for' => $category]);
+        $desc = [];
+        foreach ($descendants as $category) {
+            $desc[] = $category->id;
+        }
+        if (!(count($desc) > 0)) {
+            $desc[] = $category;
+        }
+        $books = $this->Books->find('all', ['order' => 'Books.id ASC']);
+        $books = $books->where(function ($q) use ($desc) {
+            return $q->in('category_id', $desc);
+        });
+        $books = $this->paginate($books);
+        $this->set(compact('books'));
+        $this->render('show');
     }
 }
