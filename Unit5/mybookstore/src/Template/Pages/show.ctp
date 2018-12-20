@@ -35,9 +35,7 @@ $this->layout='front';
                 <h3 class="card-title"><?= h($book->title) ?></h3>
                 <h5 class="card-title"><?= $book->has('publisher') ? $this->Html->link($book->publisher->name, ['controller' => 'Publishers', 'action' => 'view', $book->publisher->id]) : '' ?></h5>
                 <p class="card-text"><?= h($book->description) ?></p>
-                <?= $this->Html->link(__('View'), ['action' => 'view', $book->id] ,['class' =>'badge badge-pill badge-primary']) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $book->id],['class' =>'badge badge-pill badge-primary']) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $book->id] ,['class' =>'badge badge-pill badge-danger'], ['confirm' => __('Are you sure you want to delete # {0}?', $book->id)]) ?>
+
                 </div>
                 </div>
                 <div class="col-md-4 preciopp">

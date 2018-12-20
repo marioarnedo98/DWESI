@@ -47,6 +47,9 @@ $cakeDescription = 'Bookstore, what a wonderfull place';
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+    <li class="nav-item">
+        <?=$this->Html->link(__('New Book'), ['controller' => 'Books', 'action' => 'add'], ['class' => 'nav-link'])?>
+      </li>
       <li class="nav-item">
         <?=$this->Html->link(__('List Authors'), ['controller' => 'Authors', 'action' => 'index'], ['class' => 'nav-link'])?>
       </li>

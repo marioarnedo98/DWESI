@@ -48,7 +48,12 @@ class CategoriesCell extends Cell
     public function path(){
         $category_bread = $this->request->session()->read('lcat');
         $this->loadModel('Categories');
-        $crumbs = $this->Categories->find('path', ['for' => '2']);
+        if(isset($category_bread)){
+        $crumbs = $this->Categories->find('path', ['for' => $category_bread]);
+        }else{
+            $crumbs = [];
+        }
+        // debug($crumbs);
         $this->set(['crumbs' => $crumbs]);
     }
 }

@@ -51,7 +51,7 @@ class BooksController extends AppController
      */
     public function add()
     {
-        $book = $this->Books->newEntity();
+        $book =$this->Books->newEntity();
         if ($this->request->is('post')) {
             $book = $this->Books->patchEntity($book, $this->request->getData());
             if ($this->Books->save($book)) {
@@ -65,6 +65,9 @@ class BooksController extends AppController
         $publishers = $this->Books->Publishers->find('list', ['limit' => 200]);
         $categories = $this->Books->Categories->find('treeList');
         $this->set(compact('categories'));
+        $this->set(['authors' => $authors]);
+        $this->set(['publishers' => $publishers]);
+        $this->set(['book' => $book]);
     }
 
     /**
@@ -92,6 +95,9 @@ class BooksController extends AppController
         $publishers = $this->Books->Publishers->find('list', ['limit' => 200]);
         $categories = $this->Books->Categories->find('treeList');
         $this->set(compact('categories'));
+        $this->set(['authors' => $authors]);
+        $this->set(['publishers' => $publishers]);
+        $this->set(['book' => $book]);
     }
 
     /**

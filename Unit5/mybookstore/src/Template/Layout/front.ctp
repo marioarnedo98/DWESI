@@ -47,18 +47,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <?= $this->Html->link(__('List Authors'), ['controller' => 'Authors', 'action' => 'index'], ['class'=> 'nav-link']) ?>
-      </li>
-      <li class="nav-item">
-        <?= $this->Html->link(__('New Author'), ['controller' => 'Authors', 'action' => 'add'], ['class'=> 'nav-link']) ?>
-      </li>
-      <li class="nav-item">
-        <li class="name"><?= $this->Html->link(__('List Publishers'), ['controller' => 'Publishers', 'action' => 'index'], ['class'=> 'nav-link']) ?>
-      </li>
-      <li class="nav-item">
-        <?= $this->Html->link(__('New Publisher'), ['controller' => 'Publishers', 'action' => 'add'], ['class'=> 'nav-link']) ?>
-      </li>
     </ul>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">

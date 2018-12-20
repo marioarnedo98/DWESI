@@ -64,7 +64,6 @@ class AppController extends Controller
     }
     public function beforeFilter(Event $event){
         $p= $this->request->params['pass'];
-        debug($p);
         if(isset($p[0])){
             $this->request->session()->write('lcat', $p[0]);
         }else{
