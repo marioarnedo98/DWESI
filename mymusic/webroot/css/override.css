@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+html{
+    font-family: 'Montserrat', sans-serif !important;
+}
+div.logo_intro_login img {
+    display: block;
+    margin: 0 auto;
+}
+
+div.logo_intro_login {
+    border-bottom: 2px solid #d9dadc;
+    width: 100%
+}
+
+div.text-intro-login, 
+div.text-intro-register {
+    text-align: center;
+}
+div.users_form label{
+    display: none;
+}
+div.text-intro-register{
+    padding-top: 25px;
+    font-size: 32px;
+}
+div.text-intro-register .button-register{
+    color: #fff;
+    padding: 15px 170px;
+    box-shadow: inset 0 0 0 2px #ffff;
+    background-color: transparent;
+    border-radius: 500px;
+    font-size: 20px;
+    transition: 0.5s ease all;
+}
+div.text-intro-register .button-register:hover{
+    color: #fff;
+    background-color: #000000;
+    font-size: 20px;
+    transition: 0.5s ease all;
+}
+div.btn-login .btn-delete{
+    border-radius: 500px;
+    padding: 16px 48px 18px;
+    font-size: 20px;
+    transition: 0.5s ease all;
+}
+div.btn-login button{
+    color: #fff;
+    padding: 16px 48px 18px;
+    background-color: #1db954;
+    border-radius: 500px;
+    font-size: 20px;
+    transition: 0.5s ease all;
+}
+div.btn-login button:hover{
+    color: #fff;
+    background-color: #1ed760;
+}
+div.btn-login{
+    border-bottom: 2px solid #d9dadc;
+
+}
+.users_form{
+    font-size: 32px;
+    text-align: center;
+  display: flex;
+  align-items: center;
+}
+.users_form form{
+    width: 100%;
+}
+.users_form input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+textarea {
+    width: 100%;
+    display: flex;
+  align-items: center;
+}
+.navbar-default .navbar-nav > .divider {
+    background-color: #D9DADC;
+}
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 0px;
+    font-size: 18px;
+    line-height: 20px;
+    padding-bottom: 10px;
+    
+}
+.navbar{
+    margin-bottom: 0px;
+}
+.navbar-nav>li>a {
+    line-height: 35px;
+    color: white;
+}
+.navbar-default{
+    background-color: #666666;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 0px;
+}
+.navbar-default .navbar-nav>li>a {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #1DB954;
+    background-color: transparent;
+}
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{
+    margin-left: 70px;
+}
+.navbar-right {
+    float: right!important;
+    margin-right: 70px;
+}
+body{
+    background: #666666;
+}
+.music-player{
+    background: #fff;
+    border-radius: 50px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+.music-player audio{
+    max-width: 100%;
+}
+div.users_form.submit_song label{
+    display: block;
+    text-align: left;
+    color: white;
+}
+div.music-player .cover img{
+    padding-top: 30px;
+}
+div.music-player{
+    margin: 15px;
+}
+div.row.author{
+    background: #fff;
+    margin: 10px;
+
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
