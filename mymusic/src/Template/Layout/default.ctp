@@ -52,10 +52,16 @@ $cakeDescription = 'My music, musica para todos';
         <li><?php echo $this->Html->image('Logo.png',['alt' => 'Logo','class'=>'navbar-brand', 'url' => ['controller' => 'pages', 'action' => 'home']]);?></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+    <?php $name = $this->Session->read('Auth.User.username');?>
+    
         <li><?php echo $this->Html->link('Browse','/songs');?></li>
         <li role="separator" class="divider"></li>
+        <?php if(!$name):?>
         <li><?php echo $this->Html->link('Login','/users/login');?></li>
         <li><?php echo $this->Html->link('Register','/users/add');?></li>
+<?php else:?>
+<li><a><?php echo "Bienvenido ".$name ;?></a></li>
+<?php endif;?>
         <li><?php echo $this->Html->link('Authors','/authors');?></li>
     </ul>
   </div>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 06-01-2019 a las 20:09:18
--- Versión del servidor: 5.7.19
--- Versión de PHP: 7.1.9
+-- Tiempo de generación: 14-01-2019 a las 13:48:44
+-- Versión del servidor: 5.7.21
+-- Versión de PHP: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -138,18 +138,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `name`, `created`, `modified`) VALUES
-(1, 'marioarnedo1@gmail.com', 'mario', 'mario', '2019-01-03 13:21:19', '2019-01-03 13:21:19');
+INSERT INTO `users` (`id`, `email`, `password`, `username`, `created`, `modified`) VALUES
+(4, 'marioarnedo1@gmail.com', '$2y$10$uXQX0tiXEVnQNnh.nCvUeOG/2ccZ0jp.zeffgfXj0VQYHs1o2gp3u', 'mario', '2019-01-14 11:47:47', '2019-01-14 11:47:47'),
+(5, 'marioarnedo98@gmail.com', '$2y$10$/VXJeQXmFtUbqvl/7/7efehG2N8LlEPqZhTRUBbDxR37m7xQtL/3e', 'marioarnedo98', '2019-01-14 11:56:04', '2019-01-14 11:56:04');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

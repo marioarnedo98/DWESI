@@ -2,7 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
-
+use Cake\Auth\DefaultPasswordHasher;
 /**
  * User Entity
  *
@@ -28,7 +28,7 @@ class User extends Entity
     protected $_accessible = [
         'email' => true,
         'password' => true,
-        'name' => true,
+        'username' => true,
         'created' => true,
         'modified' => true
     ];
@@ -41,4 +41,10 @@ class User extends Entity
     protected $_hidden = [
         'password'
     ];
+    protected function _setPassword($value){
+        if(strlen($value)>0){
+            $hasher = new DefaultPasswordHasher();
+            return $hasher->hash($value);
+        }
+    }
 }

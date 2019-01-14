@@ -10,7 +10,7 @@
     <div class="text-intro-login">
 <?=__('<b>Log in with your username and password</b>')?>
 </div>
-<?=$this->Form->control('name' ,['placeholder' => 'Username'])
+<?=$this->Form->control('username' ,['placeholder' => 'Username'])
 ?>
 <?=$this->Form->control('password',['placeholder' => 'Password'])
 ?>

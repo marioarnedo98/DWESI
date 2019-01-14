@@ -51,7 +51,7 @@ class UsersTable extends Table
         return $validator
         ->notEmpty('email', 'An Email is required')
         ->notEmpty('password','An Password is required')
-        ->notEmpty('name', 'An Username is required');
+        ->notEmpty('username', 'An Username is required');
 
         
     }
@@ -66,6 +66,7 @@ class UsersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->isUnique(['username']));
 
         return $rules;
     }
