@@ -12,22 +12,8 @@
  * @since         0.10.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
-use Cake\Cache\Cache;
-use Cake\Core\Configure;
-use Cake\Core\Plugin;
-use Cake\Datasource\ConnectionManager;
-use Cake\Error\Debugger;
-use Cake\Http\Exception\NotFoundException;
 
-$this->layout = false;
-
-if (!Configure::read('debug')) :
-    throw new NotFoundException(
-        'Please replace src/Template/Pages/home.ctp with your own version or re-enable debug mode.'
-    );
-endif;
-
-$cakeDescription = 'Mymusic, musica para todos';
+$cakeDescription = 'My music, musica para todos';
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,17 +24,22 @@ $cakeDescription = 'Mymusic, musica para todos';
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?= $cakeDescription ?>
+        <?= $cakeDescription ?>:
+        <?= $this->fetch('title') ?>
     </title>
-
     <?= $this->Html->meta('icon') ?>
+
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('style.css') ?>
-    <?= $this->Html->css('home.css') ?>
     <?= $this->Html->css('override.css') ?>
+
+    <?= $this->fetch('meta') ?>
+    <?= $this->fetch('css') ?>
+    <?= $this->fetch('script') ?>
 </head>
-<body class="home">
-<nav class="navbar navbar-default navbar-fixed-top navbar-semi-transparent" role="navigation">
+
+<body>
+<nav class="navbar navbar-default navbar-semi-transparent" role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="icon-bar"></span>
@@ -56,28 +47,42 @@ $cakeDescription = 'Mymusic, musica para todos';
       <span class="icon-bar"></span>
     </button>    
   </div>
-  <div class="navbar-collapse collapse container">
+  <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
         <li><?php echo $this->Html->image('Logo.png',['alt' => 'Logo','class'=>'navbar-brand', 'url' => ['controller' => 'pages', 'action' => 'home']]);?></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li><?php echo $this->Html->link('Browse','/songs/index');?></li>
+    <?php $name = $this->Session->read('Auth.User.username');?>
+    
+        <li><?php echo $this->Html->link('Browse','/songs');?></li>
         <li role="separator" class="divider"></li>
+        <?php if(!$name):?>
         <li><?php echo $this->Html->link('Login','/users/login');?></li>
         <li><?php echo $this->Html->link('Register','/users/add');?></li>
+<?php else:?>
+<li><a><?php echo "Bienvenido ".$name ;?></a></li>
+<li><?php echo $this->Html->link('Logout','/users/logout');?></li>
+<?php endif;?>
         <li><?php echo $this->Html->link('Authors','/authors');?></li>
     </ul>
   </div>
 </nav>
-
-<header class="row">
-    <div class="header-image"><h1 class="intro">Música para todos.</h1><?= $this->Html->image('mymusic-into.jpg') ?>
-    <?= $this->Html->link(__('See all Songs'), ['controller' => 'Songs','action' => 'index'] ,['class' =>'btn btn-success']) ?>
+<div class="row container">
+<nav class="col-sm-3" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('Add song'), ['controller' => 'Songs', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Add Author'), ['controller' => 'Authors', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Register an user'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+    </ul>
+</nav>
+    <?= $this->Flash->render() ?>
+    <div class="col-sm-9">
+        <?= $this->fetch('content') ?>
     </div>
-    <div class="header-title">
-        <h1>Welcome to Mymusic. Calidad. Solidez.</h1>
     </div>
-</header>
+    <footer>
+    </footer>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

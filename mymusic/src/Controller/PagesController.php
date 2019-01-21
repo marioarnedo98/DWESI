@@ -66,4 +66,22 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+    public function backend(){
+        $this->loadModel('Songs');
+        $this->paginate = [
+            'contain' => ['Authors', 'Publishers']
+        ];
+        $songs= $this->paginate($this->Songs);
+        $this->set(compact('songs'));
+        $this->set('__serialize',['songs']);
+    }
+    public function view(){
+        $path= func_get_args();
+        $this->loadModel('Songs');
+        $song= $this->Songs->get($path[0], [
+            'contain' => ['Authors']
+        ]);
+        $this->set('song', $song);
+        $this->set('__serialize',['songs']);
+    }
 }

@@ -47,8 +47,8 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('Auth',[
             'loginRedirect' =>[
-                'controller' => 'Songs',
-                'action' => 'index'
+                'controller' => 'Pages',
+                'action' => 'backend'
             ],
             'logoutRedirect' => [
                 'controller' => 'Pages',
@@ -63,6 +63,6 @@ class AppController extends Controller
         //$this->loadComponent('Security');
     }
     public function beforeFilter (Event $event){
-        $this->Auth->allow(['index', 'edit','view', 'display', 'add']);
+        $this->Auth->allow(['index','view', 'display']);
     }
 }
