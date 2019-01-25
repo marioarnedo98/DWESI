@@ -50,7 +50,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
         'httpOnly' => true
     ]));
-        $routes->connect('/', ['controller' => 'Pages', 'action' => 'backend']);
+        $routes->connect('/backend', ['controller' => 'Pages', 'action' => 'backend']);
         // $routes->connect('/', ['controller' => 'Pages', 'action' => 'backend']);
 
     /**

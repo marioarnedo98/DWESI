@@ -6,7 +6,7 @@ $this->layout='back';
  */
 ?>
 <div class="text-intro-login">
-<?=__('<h3><b>Songs</b></h3>')?>
+<?=__('<h3><b>Backend</b></h3>')?>
 </div>
 <table cellpadding="0" cellspacing="0">
 <thead>
@@ -30,22 +30,12 @@ $this->layout='back';
                     </audio>
                 </td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $song->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $song->id], ['confirm' => __('Are you sure you want to delete # {0}?', $song->id)]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller'=> 'Songs','action' => 'edit', $song->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller'=> 'Songs','action' => 'delete', $song->id], ['confirm' => __('Are you sure you want to delete # {0}?', $song->id)]) ?>
                 </td>
                     
             </tr>
             <?php endforeach; ?>
             </tbody>
     </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-    </div>
 </div>

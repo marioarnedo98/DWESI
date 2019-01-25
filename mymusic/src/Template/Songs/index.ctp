@@ -8,16 +8,21 @@
 <div class="text-intro-login">
 <?=__('<h3><b>Songs</b></h3>')?>
 </div>
-            <?php foreach ($songs as $song): ?>
-            <div class="music-player col-sm-3">
-            <div class="cover">
+            <?php foreach ($songs as $song):
+                $categorie_name=$song->categories['name'];?>
+
+            <div class="music-player row">
+            <div class="cover col-sm-2">
             <img src="<?php echo $this->request->webroot;?>files/Songs/photo/<?php echo h($song->photo)?>" alt="Caratula" srcset="">
             </div>
-            <div class="title">
-                    <h3><?= $song->has('author') ? $this->Html->link($song->author->Name, ['controller' => 'Authors', 'action' => 'view', $song->author->id]) : '' ?></h3>
+            <div class="title col-sm-5">
                     <h1><?= h($song->title) ?></h1>
                 </div>
-                <div class="lector">
+                <div class="col-sm-2">
+                <h3><?= $song->has('author') ? $this->Html->link($song->author->Name, ['controller' => 'Authors', 'action' => 'view', $song->author->id]) : '' ?></h3>
+                <h5><?=h($categorie_name);?></h5>
+                </div>
+                <div class="lector col-sm-3">
                 <audio controls>
                         <source src="<?php echo $this->request->webroot;?>files/Songs/song/<?php echo h($song->song)?>" type="audio/mp3"/>
                     </audio>

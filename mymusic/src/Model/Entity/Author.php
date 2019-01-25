@@ -29,6 +29,7 @@ class Author extends Entity
         'Name' => true,
         'created' => true,
         'modified' => true,
+        'description' => true,
         'songs' => true
     ];
 }

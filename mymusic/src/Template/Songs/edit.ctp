@@ -14,6 +14,7 @@
             echo $this->Form->control('title',['placeholder' => 'Title']);
             echo $this->Form->control('author_id', ['options' => $authors]);
             echo $this->Form->control('publisher_id', ['options' => $publishers]);
+            echo $this->Form->control('category_id');
             echo $this->Form->control('photo', ['type' => 'file'], ['required' => false]);
             echo $this->Form->control('song', ['type' => 'file'], ['required' => false]);
         ?>

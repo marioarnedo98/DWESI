@@ -12,6 +12,7 @@
 </div>
         <?php
             echo $this->Form->control('Name',['placeholder' => 'Name']);
+            echo $this->Form->control('description',['placeholder' => 'Description']);
         ?>
     </fieldset>
     <div class="btn-login">

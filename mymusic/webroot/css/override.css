@@ -138,9 +138,12 @@ body{
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    margin: 15px !important;
 }
 .music-player audio{
     max-width: 100%;
+    display: block;
+    margin: 0 auto;
 }
 div.users_form.submit_song label{
     display: block;
@@ -148,10 +151,16 @@ div.users_form.submit_song label{
     color: white;
 }
 div.music-player .cover img{
-    padding-top: 30px;
+    max-height: 100px;
+    padding: 15px;
+    margin: 0 auto;
+    display: block;
 }
 div.music-player{
     margin: 15px;
+    display: flex;
+   justify-content: center;
+   align-items: center;
 }
 div.row.author{
     background: #fff;
@@ -165,6 +174,11 @@ div.row.author{
     position: relative;
     display: inline-block;
 }
-.lector audio{
-    width: 110px;
+#backend .lector audio{
+    max-width: 110px !important;
+}
+@media (min-width: 1200px){
+.container {
+    width: 1320px !important;
+}
 }

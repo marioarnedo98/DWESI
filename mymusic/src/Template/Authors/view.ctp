@@ -9,10 +9,12 @@
   
 
     <div class="text-intro-login">
-        <h3><?= __('Related Songs of '.$author->Name) ?></h3>
+    <h3><?=h($author->Name)?></h3>
+            <q><?=h($author->description)?></q>
+        <h3><?= __('Related Songs of '.$author->Name) ?></h3></div>
         <?php if (!empty($author->songs)): ?>
             <?php foreach ($author->songs as $songs): ?>
-            <div class="music-player col-sm-3">
+            <div class="music-player col-sm-12">
             <div class="cover">
             <img src="<?php echo $this->request->webroot;?>files/Songs/photo/<?php echo h($songs->photo)?>" alt="Caratula" srcset="">
             </div>

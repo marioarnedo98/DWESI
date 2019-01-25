@@ -39,6 +39,9 @@ class SongsTable extends Table
         $this->setTable('songs');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
+        $this->belongsTo('categories',[
+            'foreignKey' => 'category_id'
+        ]);
 
         $this->addBehavior('Timestamp');
         $this->addBehavior('Josegonzalez/Upload.Upload', [

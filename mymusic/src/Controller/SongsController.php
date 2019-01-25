@@ -22,11 +22,13 @@ class SongsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Authors', 'Publishers']
+            'contain' => ['Authors', 'Publishers', 'Categories'],
+            'limit'=>5,
         ];
         $songs = $this->paginate($this->Songs);
 
         $this->set(compact('songs'));
+
     }
 
     /**
@@ -66,6 +68,9 @@ class SongsController extends AppController
         $publishers = $this->Songs->Publishers->find('list', ['limit' => 200]);
        
         $this->set(compact('song', 'authors', 'publishers'));
+        // add categories
+        $categories= $this->Songs->Categories->find('treeList');
+        $this->set(compact('categories'));
     }
 
     /**
@@ -92,6 +97,9 @@ class SongsController extends AppController
         $authors = $this->Songs->Authors->find('list', ['limit' => 200]);
         $publishers = $this->Songs->Publishers->find('list', ['limit' => 200]);
         $this->set(compact('song', 'authors', 'publishers'));
+        // add categories
+        $categories= $this->Songs->Categories->find('treeList');
+        $this->set(compact('categories'));
     }
 
     /**

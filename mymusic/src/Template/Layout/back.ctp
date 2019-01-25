@@ -38,7 +38,7 @@ $cakeDescription = 'My music, musica para todos';
     <?= $this->fetch('script') ?>
 </head>
 
-<body>
+<body id="backend">
 <nav class="navbar navbar-default navbar-semi-transparent" role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -49,12 +49,13 @@ $cakeDescription = 'My music, musica para todos';
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-        <li><?php echo $this->Html->image('Logo.png',['alt' => 'Logo','class'=>'navbar-brand', 'url' => ['controller' => 'pages', 'action' => 'home']]);?></li>
+        <li><?php echo $this->Html->image('Logo.png',['alt' => 'Logo','class'=>'navbar-brand', 'url' => '/']);?></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <?php $name = $this->Session->read('Auth.User.username');?>
     
         <li><?php echo $this->Html->link('Browse','/songs');?></li>
+        <li><?php echo $this->Html->link('Authors','/authors');?></li>
         <li role="separator" class="divider"></li>
         <?php if(!$name):?>
         <li><?php echo $this->Html->link('Login','/users/login');?></li>
@@ -63,7 +64,6 @@ $cakeDescription = 'My music, musica para todos';
 <li><a><?php echo "Bienvenido ".$name ;?></a></li>
 <li><?php echo $this->Html->link('Logout','/users/logout');?></li>
 <?php endif;?>
-        <li><?php echo $this->Html->link('Authors','/authors');?></li>
     </ul>
   </div>
 </nav>
@@ -73,6 +73,7 @@ $cakeDescription = 'My music, musica para todos';
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Add song'), ['controller' => 'Songs', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('Add Author'), ['controller' => 'Authors', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Add Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('Register an user'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
