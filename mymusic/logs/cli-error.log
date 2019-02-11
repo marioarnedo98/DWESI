@@ -1,0 +1,20 @@
+2018-12-24 10:16:13 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'cake_music.music' doesn't exist in C:\wamp64\www\mymusic\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 131
+Stack Trace:
+#0 C:\wamp64\www\mymusic\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'music', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\wamp64\www\mymusic\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('music', Array)
+#2 C:\wamp64\www\mymusic\vendor\cakephp\cakephp\src\ORM\Table.php(555): Cake\Database\Schema\CachedCollection->describe('music')
+#3 C:\wamp64\www\mymusic\vendor\cakephp\cakephp\src\ORM\Table.php(680): Cake\ORM\Table->getSchema()
+#4 C:\wamp64\www\mymusic\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(221): Cake\ORM\Table->getPrimaryKey()
+#5 C:\wamp64\www\mymusic\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(131): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 C:\wamp64\www\mymusic\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(114): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'music', 'Music')
+#7 C:\wamp64\www\mymusic\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(101): Bake\Shell\Task\ModelTask->bake('Music')
+#8 C:\wamp64\www\mymusic\vendor\cakephp\bake\src\Shell\BakeShell.php(279): Bake\Shell\Task\ModelTask->main('Music')
+#9 C:\wamp64\www\mymusic\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Music', 0)
+#10 C:\wamp64\www\mymusic\vendor\cakephp\bake\src\Shell\BakeShell.php(280): Cake\Collection\Collection->each(Object(Closure))
+#11 C:\wamp64\www\mymusic\vendor\cakephp\cakephp\src\Console\Shell.php(518): Bake\Shell\BakeShell->all('music')
+#12 C:\wamp64\www\mymusic\vendor\cakephp\cakephp\src\Console\CommandRunner.php(342): Cake\Console\Shell->runCommand(Array, true)
+#13 C:\wamp64\www\mymusic\vendor\cakephp\cakephp\src\Console\CommandRunner.php(164): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#14 C:\wamp64\www\mymusic\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#15 {main}
+
+
